@@ -7,3 +7,4 @@ pycryptodome==3.17
 requests==2.30.0
 soupsieve==2.4.1
 urllib3==2.0.2
+holidays==0.24
