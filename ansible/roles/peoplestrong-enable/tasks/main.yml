@@ -1,0 +1,17 @@
+- name: Peoplestrong time in weekdays 
+  ansible.builtin.cron:
+    name: "peoplestrong time in weekdays"
+    user: kleo
+    minute: "0"
+    hour: "08"
+    weekday: "1-5"
+    job: "sleep $(( 1$(date +\\%N) \\% 300 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"
+
+- name: Peoplestrong time out weekdays
+  ansible.builtin.cron:
+    name: "peoplestrong time out weekdays"
+    user: kleo
+    minute: "0"
+    hour: "17"
+    weekday: "1-5"
+    job: "sleep $(( 1$(date +\\%N) \\% 300 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"

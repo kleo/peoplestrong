@@ -1,0 +1,14 @@
+---
+- hosts: google
+  user: kleo
+  become: yes
+  roles:
+    - role: peoplestrong
+      tags: peoplestrong
+
+    - role: peoplestrong-enable
+      tags: peoplestrong-enable
+
+    - role: peoplestrong-disable
+      tags: peoplestrong-disable
+
