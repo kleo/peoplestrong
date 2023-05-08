@@ -1,0 +1,18 @@
+# chrome js debugging notes
+
+// dependent library : jsencrypt.min.js
+function encryptForServerSide(actualText) { # actualText: "2023-5-6 0:58:47|k211194"
+	try {
+		var publicKeyy = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9juqgXB+P/ijlgxv3FvJ2OSC/kktrMOdB6154QJYpDpYyLLlmBemgs9ebAvY1ty8zQrTnHO2NkdzOvc+ZG4H3XtOWHz0fzjmVwl0MEwHygKHML65CGT3TZUbNTxC4aVB9UJHQSWxSv39nqXAbY8kMD0CAuQIVxBW7DT0iVHRuPwIDAQAB";
+		var encrypt = new JSEncrypt(); # encrypt: t {default_key_size: 1024, default_public_exponent: '010001', log: false, key: e}
+		encrypt.setPublicKey(publicKeyy); # publicKeyy: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9juqgXB+P/ijlgxv3FvJ2OSC/kktrMOdB6154QJYpDpYyLLlmBemgs9ebAvY1ty8zQrTnHO2NkdzOvc+ZG4H3XtOWHz0fzjmVwl0MEwHygKHML65CGT3TZUbNTxC4aVB9UJHQSWxSv39nqXAbY8kMD0CAuQIVxBW7DT0iVHRuPwIDAQAB"
+		return encrypt.encrypt(actualText);
+	} catch (e) {
+		console.log("encryption failed for " + actualText);
+	}
+}
+
+# actualText: "2023-5-6 0:58:47|k211194"
+# encrypt: t {default_key_size: 1024, default_public_exponent: '010001', log: false, key: e}
+# publicKeyy: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9juqgXB+P/ijlgxv3FvJ2OSC/kktrMOdB6154QJYpDpYyLLlmBemgs9ebAvY1ty8zQrTnHO2NkdzOvc+ZG4H3XtOWHz0fzjmVwl0MEwHygKHML65CGT3TZUbNTxC4aVB9UJHQSWxSv39nqXAbY8kMD0CAuQIVxBW7DT0iVHRuPwIDAQAB"
+# encodedString: "VnZHyQaK1h69f0fJ690P2rlB6ylTtGf+1gJ5TqG0t8OP5v2Ivr5YTrw9GFq+bXzeg93H9LUsi2yFx/ck2a/F0OeicCydDkKgjafZMmFsG9/J5asOW/XGk7Q7hJ4vhGsQmHb6fqcMiLst2GHeA97ZtQ7lay+6bem12Che2U3jBgw="
