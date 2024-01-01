@@ -1,6 +1,6 @@
 ---
 - hosts: google
-  user: kleo
+  user: <username>
   become: yes
   roles:
     - role: peoplestrong

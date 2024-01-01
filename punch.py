@@ -20,6 +20,7 @@ else:
     time_formatted = datetime.datetime.now().strftime("%Y-%-m-%-d %-H:%-M:%-S")
 
     # set credentials here
+    # my account login no longer works anyway
     username = 'EFSI021160'
     password = time_formatted + '|' + 'k211194'
 

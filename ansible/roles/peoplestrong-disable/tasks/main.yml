@@ -1,19 +1,19 @@
 - name: Peoplestrong time in weekdays disable
   ansible.builtin.cron:
     name: "peoplestrong time in weekdays"
-    user: kleo
+    user: <username>
     minute: "0"
     hour: "08"
     weekday: "1-5"
-    job: "sleep $(( 1$(date +\\%N) \\% 300 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"
+    job: "sleep $(( 1$(date +\\%N) \\% 120 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"
     state: absent
 
 - name: Peoplestrong time out weekdays disable
   ansible.builtin.cron:
     name: "peoplestrong time out weekdays"
-    user: kleo
+    user: <username>
     minute: "0"
     hour: "17"
     weekday: "1-5"
-    job: "sleep $(( 1$(date +\\%N) \\% 300 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"
+    job: "sleep $(( 1$(date +\\%N) \\% 120 )) ; /opt/peoplestrong/venv/bin/python /opt/peoplestrong/punch.py >> /opt/peoplestrong/peoplestrong.log"
     state: absent

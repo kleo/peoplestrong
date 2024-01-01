@@ -3,24 +3,24 @@
   file:
     path: /opt/peoplestrong
     state: directory
-    owner: kleo
-    group: kleo
+    owner: <username>
+    group: <group>
     mode: '0755'
 
 - name: Copy punch.py script
   ansible.builtin.copy:
     src: files/punch.py
     dest: /opt/peoplestrong/punch.py
-    owner: kleo
-    group: kleo
+    owner: <username>
+    group: <group>
     mode: '0644'
 
 - name: Copy requirements.txt
   ansible.builtin.copy:
     src: files/requirements.txt
     dest: /opt/peoplestrong/requirements.txt
-    owner: kleo
-    group: kleo
+    owner: <username>
+    group: <group>
     mode: '0644'
 
 - name: Install virtualenv
